@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal Studi Hadis Digital</title>
+    <style>
+        :root { --bg-sidebar: #fff0f5; --accent: #901a38; --border: #ffb3c6; }
+        body { display: flex; height: 100vh; margin: 0; font-family: 'Segoe UI', sans-serif; background: #fffafb; }
+        .sidebar { width: 340px; background: var(--bg-sidebar); padding: 20px; border-right: 3px solid var(--border); overflow-y: auto; }
+        .menu-title { font-weight: 800; color: var(--accent); margin-bottom: 15px; border-bottom: 2px solid var(--accent); padding-bottom: 8px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+        
+        .accordion-btn { width: 100%; padding: 14px; margin-bottom: 8px; cursor: pointer; background: white; border: 1px solid var(--border); border-radius: 8px; text-align: left; font-weight: 600; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; }
+        .accordion-btn:hover { background: #fff0f5; }
+        
+        /* Panel disembunyikan secara default */
+        .panel { display: none; padding-left: 15px; margin-bottom: 10px; }
+        .panel a { display: block; padding: 8px; text-decoration: none; color: #555; border-bottom: 1px solid #eee; }
+        .panel a:hover { color: var(--accent); font-weight: bold; }
+        iframe { flex: 1; border: none; }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="menu-title">📖 E-BOOK HADIS TEMATIK</div>
+    <button class="accordion-btn" onclick="toggleExclusive(this)">Daftar Isi & Isi Bab ▾</button>
+    <div class="panel">
+        <a href="cover.html" target="frame">📖 Cover</a>
+        <a href="kata-pengantar.html" target="frame">📝 Kata Pengantar</a>
+        <a href="daftar-isi.html" target="frame">📋 Daftar Isi</a>
+        <a href="bab1.html" target="frame">✨ Bab 1</a>
+        <a href="bab2.html" target="frame">✨ Bab 2</a>
+        <a href="bab3.html" target="frame">✨ Bab 3</a>
+        <a href="bab4.html" target="frame">✨ Bab 4</a>
+        <a href="bab5.html" target="frame">✨ Bab 5</a>
+        <a href="daftar-pustaka.html" target="frame">📚 Daftar Pustaka</a>
+        <a href="profil.html" target="frame">👤 Profil Penyusun</a>
+    </div>
+
+    <div class="menu-title" style="margin-top: 20px;">💻 REVIEW TUGAS DIGITAL</div>
+    
+    <button class="accordion-btn" onclick="toggleExclusive(this)">1. Ebook Haji & Umroh ▾</button>
+    <div class="panel"><a href="review1.html" target="frame">🔍 Lihat Review</a></div>
+    
+    <button class="accordion-btn" onclick="toggleExclusive(this)">2. Website Hadis ▾</button>
+    <div class="panel">
+        <a href="review3.html" target="frame">🔗 Hadis.my</a>
+        <a href="review2.html" target="frame">🔗 Arina Hadis</a>
+        <a href="review4.html" target="frame">🔗 M. Basuki</a>
+    </div>
+
+    <button class="accordion-btn" onclick="toggleExclusive(this)">3. Android & Desktop ▾</button>
+    <div class="panel">
+        <a href="review5.html" target="frame">📱 Aplikasi Android</a>
+        <a href="review6.html" target="frame">🖥️ Aplikasi Desktop</a>
+    </div>
+</div>
+
+<iframe name="frame" src="cover.html"></iframe>
+
+<script>
+    function toggleExclusive(btn) {
+        // Ambil semua panel
+        var panels = document.getElementsByClassName("panel");
+        var clickedPanel = btn.nextElementSibling;
+        
+        // Tutup semua panel kecuali yang diklik
+        for (var i = 0; i < panels.length; i++) {
+            if (panels[i] !== clickedPanel) {
+                panels[i].style.display = "none";
+            }
+        }
+        
+        // Buka atau tutup panel yang diklik
+        clickedPanel.style.display = (clickedPanel.style.display === "block") ? "none" : "block";
+    }
+</script>
+
+</body>
+</html>
